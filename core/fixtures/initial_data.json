@@ -1,0 +1,294 @@
+[
+  {
+    "model": "core.siteconfig",
+    "pk": 1,
+    "fields": {
+      "nom_complet": "Innocent ATCHA",
+      "titre": "Développeur Web Fullstack",
+      "phrase_accroche": "Je conçois des applications web performantes, élégantes et sur mesure depuis le Bénin 🇧🇯",
+      "bio": "Développeur web fullstack passionné avec plus de 3 ans d'expérience dans la création d'applications web modernes. Je transforme des idées complexes en solutions digitales simples et efficaces, avec une forte expertise sur Django, FastAPI et React.",
+      "localisation": "Cotonou, Bénin 🇧🇯",
+      "langues": "Français, Anglais",
+      "photo": null,
+      "email": "innocentatcha32@gmail.com",
+      "github": "https://github.com/innocentatcha",
+      "linkedin": "https://linkedin.com/in/innocentatcha",
+      "twitter": "",
+      "cv": null,
+      "annees_experience": 3,
+      "projets_realises": 20,
+      "clients_satisfaits": 15
+    }
+  },
+  {
+    "model": "core.skill",
+    "pk": 1,
+    "fields": { "nom": "Django", "pourcentage": 92, "categorie": "backend", "icone": "🐍", "ordre": 1 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 2,
+    "fields": { "nom": "FastAPI", "pourcentage": 85, "categorie": "backend", "icone": "⚡", "ordre": 2 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 3,
+    "fields": { "nom": "Laravel", "pourcentage": 75, "categorie": "backend", "icone": "🔥", "ordre": 3 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 4,
+    "fields": { "nom": "Python", "pourcentage": 90, "categorie": "backend", "icone": "🐍", "ordre": 4 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 5,
+    "fields": { "nom": "React", "pourcentage": 78, "categorie": "frontend", "icone": "⚛️", "ordre": 1 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 6,
+    "fields": { "nom": "JavaScript", "pourcentage": 82, "categorie": "frontend", "icone": "🟨", "ordre": 2 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 7,
+    "fields": { "nom": "HTML/CSS", "pourcentage": 95, "categorie": "frontend", "icone": "🎨", "ordre": 3 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 8,
+    "fields": { "nom": "Tailwind CSS", "pourcentage": 88, "categorie": "frontend", "icone": "💨", "ordre": 4 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 9,
+    "fields": { "nom": "PostgreSQL", "pourcentage": 85, "categorie": "database", "icone": "🐘", "ordre": 1 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 10,
+    "fields": { "nom": "MySQL", "pourcentage": 78, "categorie": "database", "icone": "🗄️", "ordre": 2 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 11,
+    "fields": { "nom": "Redis", "pourcentage": 70, "categorie": "database", "icone": "🔴", "ordre": 3 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 12,
+    "fields": { "nom": "Git & GitHub", "pourcentage": 90, "categorie": "devops", "icone": "🔀", "ordre": 1 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 13,
+    "fields": { "nom": "Docker", "pourcentage": 72, "categorie": "devops", "icone": "🐳", "ordre": 2 }
+  },
+  {
+    "model": "core.skill",
+    "pk": 14,
+    "fields": { "nom": "Linux / Bash", "pourcentage": 80, "categorie": "devops", "icone": "🐧", "ordre": 3 }
+  },
+  {
+    "model": "core.project",
+    "pk": 1,
+    "fields": {
+      "titre": "Plateforme E-commerce B2B",
+      "description": "Application e-commerce complète avec gestion des commandes, paiements en ligne, tableau de bord vendeur et système de facturation automatique.",
+      "image": null,
+      "stack": "Django, Django REST Framework, React, PostgreSQL, Stripe, Redis",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 1,
+      "visible": true,
+      "en_vedette": true,
+      "date_creation": "2025-03-01"
+    }
+  },
+  {
+    "model": "core.project",
+    "pk": 2,
+    "fields": {
+      "titre": "API de Gestion RH",
+      "description": "API REST robuste pour la gestion des ressources humaines : employés, congés, paie, évaluations de performance et rapports automatisés.",
+      "image": null,
+      "stack": "FastAPI, PostgreSQL, SQLAlchemy, JWT, Celery, Docker",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 2,
+      "visible": true,
+      "en_vedette": true,
+      "date_creation": "2025-02-10"
+    }
+  },
+  {
+    "model": "core.project",
+    "pk": 3,
+    "fields": {
+      "titre": "Dashboard Analytics",
+      "description": "Tableau de bord interactif pour l'analyse de données commerciales avec graphiques temps réel, exports PDF/Excel et alertes automatisées.",
+      "image": null,
+      "stack": "Django, Chart.js, PostgreSQL, Celery Beat, Tailwind CSS",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 3,
+      "visible": true,
+      "en_vedette": false,
+      "date_creation": "2025-01-15"
+    }
+  },
+  {
+    "model": "core.project",
+    "pk": 4,
+    "fields": {
+      "titre": "Application de Livraison",
+      "description": "Système de gestion de livraisons avec suivi en temps réel, gestion des livreurs, notifications push et interface client mobile-first.",
+      "image": null,
+      "stack": "Django, Django Channels, WebSocket, React Native, PostgreSQL",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 4,
+      "visible": true,
+      "en_vedette": false,
+      "date_creation": "2024-12-01"
+    }
+  },
+  {
+    "model": "core.project",
+    "pk": 5,
+    "fields": {
+      "titre": "Portail Éducatif LMS",
+      "description": "Plateforme d'apprentissage en ligne avec cours vidéo, quiz interactifs, certificats, suivi de progression et espace enseignant complet.",
+      "image": null,
+      "stack": "Django, Django REST Framework, Vue.js, PostgreSQL, AWS S3",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 5,
+      "visible": true,
+      "en_vedette": false,
+      "date_creation": "2024-11-10"
+    }
+  },
+  {
+    "model": "core.project",
+    "pk": 6,
+    "fields": {
+      "titre": "Système de Réservation",
+      "description": "Application de réservation en ligne pour hôtels et gîtes avec calendrier de disponibilités, paiement sécurisé et confirmation par email.",
+      "image": null,
+      "stack": "Laravel, Vue.js, MySQL, Stripe, Tailwind CSS",
+      "lien_github": "https://github.com/innocentatcha",
+      "lien_demo": "",
+      "ordre": 6,
+      "visible": true,
+      "en_vedette": false,
+      "date_creation": "2024-10-05"
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 1,
+    "fields": {
+      "titre": "Développement Web sur mesure",
+      "description": "Création d'applications web complètes et performantes, de la conception à la mise en production. Front-end soigné, back-end robuste.",
+      "icone": "🌐",
+      "ordre": 1,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 2,
+    "fields": {
+      "titre": "API REST & Microservices",
+      "description": "Conception et développement d'APIs RESTful scalables avec documentation Swagger, authentification JWT et tests automatisés.",
+      "icone": "🔗",
+      "ordre": 2,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 3,
+    "fields": {
+      "titre": "Dashboards & Analytics",
+      "description": "Tableaux de bord interactifs pour visualiser vos données métier en temps réel avec graphiques, exports et alertes automatiques.",
+      "icone": "📊",
+      "ordre": 3,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 4,
+    "fields": {
+      "titre": "Applications Métier",
+      "description": "Développement de logiciels de gestion personnalisés : CRM, ERP, facturation, RH, stock — adaptés à vos processus spécifiques.",
+      "icone": "⚙️",
+      "ordre": 4,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 5,
+    "fields": {
+      "titre": "Consulting & Architecture",
+      "description": "Audit de code, refactoring, choix technologiques, mise en place de CI/CD et bonnes pratiques de développement pour votre équipe.",
+      "icone": "🏗️",
+      "ordre": 5,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.service",
+    "pk": 6,
+    "fields": {
+      "titre": "Maintenance & Optimisation",
+      "description": "Suivi et maintenance de vos applications existantes, optimisation des performances, correction de bugs et mises à jour de sécurité.",
+      "icone": "🛠️",
+      "ordre": 6,
+      "visible": true
+    }
+  },
+  {
+    "model": "core.testimonial",
+    "pk": 1,
+    "fields": {
+      "nom_client": "Kofi Asante",
+      "poste": "CEO, TechBenin Solutions",
+      "photo": null,
+      "texte": "Innocent a développé notre plateforme e-commerce en un temps record avec une qualité de code irréprochable. Son expertise Django et sa réactivité font de lui un freelance de confiance. Je le recommande vivement pour tout projet web.",
+      "note": 5,
+      "visible": true,
+      "date_ajout": "2025-04-10"
+    }
+  },
+  {
+    "model": "core.testimonial",
+    "pk": 2,
+    "fields": {
+      "nom_client": "Fatou Diallo",
+      "poste": "Directrice Digitale, AfricaTech",
+      "photo": null,
+      "texte": "Excellent travail sur notre API de gestion RH ! Innocent comprend rapidement les besoins métier et livre des solutions propres et bien documentées. La communication a été parfaite tout au long du projet.",
+      "note": 5,
+      "visible": true,
+      "date_ajout": "2025-03-20"
+    }
+  },
+  {
+    "model": "core.testimonial",
+    "pk": 3,
+    "fields": {
+      "nom_client": "Emmanuel Mensah",
+      "poste": "CTO, StartupGhana",
+      "photo": null,
+      "texte": "Un développeur sérieux, ponctuel et passionné par son travail. Notre dashboard analytics a dépassé toutes nos attentes tant au niveau des performances que du design. Nous collaborons toujours ensemble.",
+      "note": 5,
+      "visible": true,
+      "date_ajout": "2025-02-28"
+    }
+  }
+]

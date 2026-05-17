@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page introuvable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    .notfound-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .notfound-code {
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .notfound-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+    .notfound-text { color: var(--text-muted); margin-bottom: 2.5rem; max-width: 420px; margin-inline: auto; }
+    .notfound-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .notfound-glitch {
+      position: relative;
+      animation: glitch 3s infinite;
+    }
+    @keyframes glitch {
+      0%, 90%, 100% { text-shadow: none; }
+      92% { text-shadow: -4px 0 #ff006e, 4px 0 #00d4ff; }
+      94% { text-shadow: 4px 0 #ff006e, -4px 0 #00d4ff; }
+      96% { text-shadow: -2px 0 #6c63ff, 2px 0 #00d4ff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notfound-page">
+    <div>
+      <div class="notfound-code notfound-glitch">404</div>
+      <h1 class="notfound-title">Page introuvable</h1>
+      <p class="notfound-text">Oups ! Cette page n'existe pas ou a été déplacée. Retournez à l'accueil pour continuer votre exploration.</p>
+      <div class="notfound-btns">
+        <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+        <a href="/#contact" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
