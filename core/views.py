@@ -55,10 +55,11 @@ def contact(request):
                 message=f'De : {nom} <{email}>\n\n{message}',
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[config.email],
-                fail_silently=True,
+                fail_silently=False,
             )
-        except Exception:
-            pass
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).error('Email send failed: %s', e)
 
         return JsonResponse({'success': True, 'message': 'Message envoyé avec succès !'})
     except json.JSONDecodeError:
