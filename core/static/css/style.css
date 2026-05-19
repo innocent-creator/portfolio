@@ -1366,7 +1366,9 @@ ul { list-style: none; }
     top: var(--nav-height);
     left: 0;
     right: 0;
-    background: var(--bg);
+    background: rgba(10, 10, 15, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
     padding: 1.5rem;
@@ -1376,6 +1378,8 @@ ul { list-style: none; }
     z-index: 999;
   }
 
+  [data-theme="light"] .nav-links { background: rgba(245, 245, 255, 0.97); }
+
   .nav-links.open { transform: translateY(0); }
   .hamburger { display: flex; }
 
@@ -1384,13 +1388,32 @@ ul { list-style: none; }
   .skills-categories { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-btns { flex-direction: column; align-items: center; }
+  .hero-btns > * { min-width: 200px; justify-content: center; }
   .about-btns { flex-direction: column; }
+  .about-btns > * { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
   .section { padding: 4rem 0; }
+  .container { padding: 0 1rem; }
+  .about-photo-frame { width: 180px; height: 180px; }
+  .about-stats { gap: 0.75rem; }
   .contact-form { padding: 1.5rem; }
   .skill-cat { padding: 1.5rem; }
+  .testimonial-card { padding: 1.5rem; }
+  .service-card { padding: 2rem 1.5rem; }
+  .hero-btns > * { width: 100%; max-width: 300px; }
+  .back-to-top { right: 1rem; bottom: 1rem; }
+}
+
+@media (max-width: 375px) {
+  .section { padding: 3rem 0; }
+  .about-photo-frame { width: 160px; height: 160px; }
+  .section-header { margin-bottom: 2.5rem; }
+  .project-body { padding: 1.25rem; }
+  .service-card { padding: 1.75rem 1.25rem; }
+  .contact-form { padding: 1.25rem; }
+  .footer { padding: 2rem 0; }
 }
 
 /* ========================================

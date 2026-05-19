@@ -95,6 +95,8 @@ STORAGES = {
         'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
     },
 }
+# Shim pour django-cloudinary-storage qui accède à STATICFILES_STORAGE (supprimé en Django 5)
+STATICFILES_STORAGE = STORAGES['staticfiles']['BACKEND']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
