@@ -9,6 +9,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,7 +83,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
+STATICFILES_DIRS = []  # core/static/ est trouvé automatiquement via AppDirectoriesFinder
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -92,7 +93,7 @@ STORAGES = {
         'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
     },
     'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+        'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
     },
 }
 # Shim pour django-cloudinary-storage qui accède à STATICFILES_STORAGE (supprimé en Django 5)
@@ -119,6 +120,93 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
     'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.AnonRateThrottle'],
     'DEFAULT_THROTTLE_RATES': {'anon': '10/min'},
+}
+
+# ── Jazzmin ──────────────────────────────────────────────────────────
+JAZZMIN_SETTINGS = {
+    "site_title": "Portfolio Admin",
+    "site_header": "Portfolio — Innocent ATCHA",
+    "site_brand": "<AI/>",
+    "site_logo": None,
+    "welcome_sign": "Bienvenue dans votre espace d'administration 👋",
+    "copyright": "Innocent ATCHA",
+    "search_model": ["core.ContactMessage", "core.Project"],
+    "topmenu_links": [
+        {"name": "🌐 Voir le site",  "url": "/",                "new_window": True},
+        {"name": "📨 Messages",      "model": "core.ContactMessage"},
+        {"name": "🚀 Projets",       "model": "core.Project"},
+    ],
+    "usermenu_links": [
+        {"name": "🌐 Voir le site", "url": "/", "new_window": True},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": ["auth"],
+    "order_with_respect_to": [
+        "core",
+        "core.SiteConfig",
+        "core.Project",
+        "core.Skill",
+        "core.Service",
+        "core.Testimonial",
+        "core.ContactMessage",
+    ],
+    "icons": {
+        "auth":                  "fas fa-users-cog",
+        "auth.user":             "fas fa-user",
+        "auth.Group":            "fas fa-users",
+        "core":                  "fas fa-layer-group",
+        "core.SiteConfig":       "fas fa-sliders-h",
+        "core.Skill":            "fas fa-code",
+        "core.Project":          "fas fa-rocket",
+        "core.Service":          "fas fa-briefcase",
+        "core.Testimonial":      "fas fa-star",
+        "core.ContactMessage":   "fas fa-envelope",
+    },
+    "default_icon_parents":  "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "related_modal_active":  True,
+    "custom_css": None,
+    "custom_js":  None,
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": False,
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "core.SiteConfig": "collapsible",
+    },
+    "language_chooser": False,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text":          False,
+    "footer_small_text":          False,
+    "body_small_text":            False,
+    "brand_small_text":           False,
+    "brand_colour":               "navbar-indigo",
+    "accent":                     "accent-indigo",
+    "navbar":                     "navbar-dark navbar-indigo",
+    "no_navbar_border":           True,
+    "navbar_fixed":               True,
+    "layout_boxed":               False,
+    "footer_fixed":               False,
+    "sidebar_fixed":              True,
+    "sidebar":                    "sidebar-dark-indigo",
+    "sidebar_nav_small_text":     False,
+    "sidebar_disable_expand":     False,
+    "sidebar_nav_child_indent":   True,
+    "sidebar_nav_compact_style":  True,
+    "sidebar_nav_legacy_style":   False,
+    "sidebar_nav_flat_style":     False,
+    "theme":                      "darkly",
+    "dark_mode_theme":            "darkly",
+    "button_classes": {
+        "primary":   "btn-primary",
+        "secondary": "btn-secondary",
+        "info":      "btn-outline-info",
+        "warning":   "btn-warning",
+        "danger":    "btn-danger",
+        "success":   "btn-success",
+    },
 }
 
 # Sécurité renforcée en production

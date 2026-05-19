@@ -134,6 +134,70 @@ document.addEventListener('DOMContentLoaded', () => {
     obs.observe(skillsSection);
   }
 
+  // ----- SKILLS CAROUSEL AUTO-SCROLL (mobile only) -----
+  const skillsCarousel = document.querySelector('.skills-categories');
+  if (skillsCarousel) {
+    const INTERVAL  = 3000;  // ms between cards
+    const MOBILE_BP = 768;
+    let autoTimer   = null;
+    let isPaused    = false;
+    let resumeTimer = null;
+
+    const getCards = () => [...skillsCarousel.querySelectorAll('.skill-cat')];
+
+    const cardLeft = (card) => card.offsetLeft - skillsCarousel.offsetLeft;
+
+    const currentIndex = () => {
+      const sl = skillsCarousel.scrollLeft;
+      let best = 0, bestDist = Infinity;
+      getCards().forEach((card, i) => {
+        const dist = Math.abs(cardLeft(card) - sl);
+        if (dist < bestDist) { bestDist = dist; best = i; }
+      });
+      return best;
+    };
+
+    const goNext = () => {
+      const all = getCards();
+      if (!all.length) return;
+      const next = (currentIndex() + 1) % all.length;
+      skillsCarousel.scrollTo({ left: cardLeft(all[next]), behavior: 'smooth' });
+    };
+
+    const startCarousel = () => {
+      if (window.innerWidth > MOBILE_BP) return;
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => { if (!isPaused) goNext(); }, INTERVAL);
+    };
+
+    const stopCarousel = () => { clearInterval(autoTimer); autoTimer = null; };
+
+    // Pause while user touches the carousel, resume 3s after finger lifts
+    skillsCarousel.addEventListener('touchstart', () => {
+      isPaused = true;
+      clearTimeout(resumeTimer);
+    }, { passive: true });
+
+    skillsCarousel.addEventListener('touchend', () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { isPaused = false; }, 3000);
+    }, { passive: true });
+
+    // Start/stop when viewport is resized
+    window.addEventListener('resize', () => {
+      window.innerWidth <= MOBILE_BP ? startCarousel() : stopCarousel();
+    });
+
+    // Start only when the skills section enters the viewport
+    const skillsSec = document.getElementById('skills');
+    if (skillsSec) {
+      const carouselObs = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) startCarousel(); else stopCarousel();
+      }, { threshold: 0.15 });
+      carouselObs.observe(skillsSec);
+    }
+  }
+
   // ----- TESTIMONIALS SLIDER -----
   const track = document.getElementById('testimonialsTrack');
   if (track) {
