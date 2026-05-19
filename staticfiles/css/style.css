@@ -1399,7 +1399,22 @@ ul { list-style: none; }
 
   .projects-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
-  .skills-categories { grid-template-columns: 1fr; }
+  .skills-categories {
+    display: flex;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .skills-categories::-webkit-scrollbar { display: none; }
+  .skill-cat {
+    flex-shrink: 0;
+    width: 85vw;
+    scroll-snap-align: start;
+  }
   .form-row { grid-template-columns: 1fr; }
   .hero-btns { flex-direction: column; align-items: center; }
   .hero-btns > * { min-width: 200px; justify-content: center; }
