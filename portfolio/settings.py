@@ -14,11 +14,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',  # <-- Placé ICI, avant staticfiles
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
     'cloudinary',
-    'cloudinary_storage',
     'core',
 ]
 
@@ -126,3 +126,5 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    
