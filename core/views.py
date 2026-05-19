@@ -1,12 +1,30 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-from django.core.mail import send_mail
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
 import json
+import requests as http_requests
 
 from .models import SiteConfig, Skill, Project, Service, Testimonial, ContactMessage
+
+
+def _send_contact_email(nom, email, sujet, message, recipient):
+    api_key = getattr(settings, 'RESEND_API_KEY', '')
+    if not api_key:
+        return
+    subject = f'[Portfolio] Nouveau message de {nom}' + (f' — {sujet}' if sujet else '')
+    body = f'De : {nom} <{email}>\n\n{message}'
+    http_requests.post(
+        'https://api.resend.com/emails',
+        headers={'Authorization': f'Bearer {api_key}', 'Content-Type': 'application/json'},
+        json={
+            'from': 'Portfolio Contact <onboarding@resend.dev>',
+            'to': [recipient],
+            'subject': subject,
+            'text': body,
+        },
+        timeout=10,
+    )
 
 
 def get_site_config():
@@ -50,13 +68,7 @@ def contact(request):
 
         try:
             config = get_site_config()
-            send_mail(
-                subject=f'[Portfolio] Nouveau message de {nom}' + (f' — {sujet}' if sujet else ''),
-                message=f'De : {nom} <{email}>\n\n{message}',
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[config.email],
-                fail_silently=False,
-            )
+            _send_contact_email(nom, email, sujet, message, config.email)
         except Exception as e:
             import logging
             logging.getLogger(__name__).error('Email send failed: %s', e)

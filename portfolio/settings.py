@@ -100,6 +100,8 @@ STATICFILES_STORAGE = STORAGES['staticfiles']['BACKEND']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+RESEND_API_KEY = config('RESEND_API_KEY', default='')
+
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
