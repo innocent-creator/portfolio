@@ -44,7 +44,12 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: clip;     /* bloque le scroll horizontal sur tout le document */
+  max-width: 100%;
+}
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -52,6 +57,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
   transition: background var(--transition), color var(--transition);
 }
 
@@ -255,6 +261,7 @@ ul { list-style: none; }
 
 .section {
   padding: 6rem 0;
+  overflow-x: clip;   /* empêche les animations AOS de créer un scroll horizontal */
 }
 
 .section-alt {
@@ -1365,7 +1372,9 @@ ul { list-style: none; }
     position: fixed;
     top: var(--nav-height);
     left: 0;
-    right: 0;
+    width: 100vw;          /* largeur exacte du viewport, jamais plus */
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
     background: rgba(10, 10, 15, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
